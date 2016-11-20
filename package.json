@@ -1,0 +1,24 @@
+{
+  "name": "block-tackle",
+  "version": "0.1.0",
+  "description": "Find out when your event loop gets blocked and tackle it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mildmojo/block-tackle.git"
+  },
+  "keywords": [
+    "blocking",
+    "event loop",
+    "block"
+  ],
+  "author": "mildmojo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mildmojo/block-tackle/issues"
+  },
+  "homepage": "https://github.com/mildmojo/block-tackle#readme"
+}
