@@ -37,7 +37,7 @@ tackler.on('blocked', blockTime => {
 
 ...
 
-// Before process exit, stop the timer so it doesn't keep the process running.
+// Maybe stop the timer if you just don't care anymore.
 tackler.stop();
 ```
 

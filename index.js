@@ -28,6 +28,9 @@ class BlockTackle extends EventEmitter {
 
   on() {
     super.on.apply(this, arguments);
+    // Magic! EventEmitter's _events[x] is the function to fire if there's only
+    // one, or an array of functions if there are several. So if there are
+    // several, unregister our built-in reporter.
     if (typeof this._events['blocked'] !== 'function') {
       this.removeListener('blocked', this._reporter);
     }
@@ -38,14 +41,14 @@ class BlockTackle extends EventEmitter {
   }
 
   _loop() {
-    const loopDuration = Date.now() - this._lastCheckAt;
+    const elapsed = Date.now() - this._lastCheckAt;
     this._lastCheckAt = Date.now();
 
-    if (loopDuration > this.minBlockTime) {
-      this.emit('blocked', loopDuration);
+    if (elapsed > this.minBlockTime) {
+      this.emit('blocked', elapsed);
     }
 
-    this._loopHandle = setTimeout(this._loop.bind(this), this.checkInterval);
+    this._loopHandle = setTimeout(this._loop.bind(this), this.checkInterval).unref();
   }
 
   _reporter(blockTime) {

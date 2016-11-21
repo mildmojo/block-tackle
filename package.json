@@ -1,6 +1,6 @@
 {
   "name": "block-tackle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find out when your event loop gets blocked and tackle it.",
   "main": "index.js",
   "scripts": {
