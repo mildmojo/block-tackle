@@ -42,13 +42,13 @@ class BlockTackle extends EventEmitter {
 
   _loop() {
     const elapsed = Date.now() - this._lastCheckAt;
-    this._lastCheckAt = Date.now();
 
     if (elapsed > this.minBlockTime) {
       this.emit('blocked', elapsed);
     }
 
     this._loopHandle = setTimeout(this._loop.bind(this), this.checkInterval).unref();
+    this._lastCheckAt = Date.now();
   }
 
   _reporter(blockTime) {
